@@ -1,0 +1,39 @@
+.container {
+    text-align: center;
+    background-color: #b4b4b4;
+    .alerts {
+        font-size: 20px;
+        padding-top: 5px;
+        .output {
+            text-transform: uppercase;
+          }
+      }
+    .background {
+        background-color: #cdcdcd;
+        .btn button {
+            width: 70px;
+            height: 70px;
+            margin: 40px;
+            border-radius: 50%;
+            background-color: red;
+            .fas {
+                font-size: 40px;
+            }
+        }
+        .score {
+            .result {
+                font-size: 30px;
+            }    
+        }
+        .newgame {
+            width: 100px;
+            height: 70px;
+            font-size: 20px;
+            background-color: yellow;
+            margin: 30px;
+        }
+        .number {
+            font-size: 30px   
+        }
+    }
+  } 

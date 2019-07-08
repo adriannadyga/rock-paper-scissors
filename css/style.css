@@ -1,0 +1,47 @@
+.container {
+  text-align: center;
+  background-color: #b4b4b4;
+}
+
+.container .alerts {
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.container .alerts .output {
+  text-transform: uppercase;
+}
+
+.container .background {
+  background-color: #cdcdcd;
+}
+
+.container .background .btn button {
+  width: 70px;
+  height: 70px;
+  margin: 40px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.container .background .btn button .fas {
+  font-size: 40px;
+}
+
+.container .background .score .result {
+  font-size: 30px;
+}
+
+.container .background .newgame {
+  width: 100px;
+  height: 70px;
+  font-size: 20px;
+  background-color: yellow;
+  margin: 30px;
+}
+
+.container .background .number {
+  font-size: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
