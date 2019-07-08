@@ -57,7 +57,7 @@ var compare = function(userMove, compChoice){
 };
 
 //wywołanie zdarzenia po kliknięciu w button
-btnPaper.addEventListener('click', function(){
+/*btnPaper.addEventListener('click', function(){
   playerMove('paper');
 });
 btnRock.addEventListener('click', function(){
@@ -65,7 +65,17 @@ btnRock.addEventListener('click', function(){
 });
 btnScissors.addEventListener('click', function(){
   playerMove('scissors');
-});
+});*/
+
+//pętla przchodząca przez wszytskie buttony
+var btnAll = document.querySelectorAll('player-move');
+
+for(var i = 0; i < btnAll.length; i++){
+  var dataMove = btnAll[i].getAtribute('data-move');
+  btnAll[i].addEventListener('click', function(){
+    playerMove(dataMove);
+  })
+};
 
 //funkcja wyświetlająca wynik dla rundy
 function outputResult(compareResult, playerText, compText){
@@ -101,13 +111,11 @@ var resetGame = function(){
 //koniec gry
 function endOfGame() {
   if (playerScore >= roundsToWin){
-    output.innerHTML = compareResult + '<br> you choose: ' + playerText + ' computer choose ' + compText + '<br>' 
-    'YOU WON !!! <br> click new game to start';
+    output.innerHTML = 'YOU WON !!! <br> click new game to start';
     buttonDisabled();
   }
   else if (compScore >= roundsToWin){
-    output.innerHTML = compareResult + '<br> you choose: ' + playerText + ' computer choose ' + compText + '<br>'
-    'YOU LOST !!! <br> click new game to start';
+    output.innerHTML = 'YOU LOST !!! <br> click new game to start';
     buttonDisabled();
   }
 }
