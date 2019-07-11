@@ -14,7 +14,7 @@ var text = document.getElementById('alert');
 var params = {
   roundNumber: 0,
   playerScore: 0,
-  playerText: '',
+  userMove: '',
   compScore: 0,
   compChoice: '',
   roundsToWin: 0,
@@ -188,7 +188,7 @@ var playerMove = function(userMove){
     compScore: params.compScore,
     compChoice: params.compChoice,
     playerScore: params.playerScore,
-    playerText: params.playerText}
+    userMove: params.userMove}
   );
   //dodawanie tabeli
   var myTable = document.getElementById('table');
@@ -204,7 +204,7 @@ var playerMove = function(userMove){
     computerChoice.innerText = params.progress[i].compChoice;
 
     var userChoice = document.createElement('td')
-    userChoice.innerText = params.progress[i].playerText;
+    userChoice.innerText = params.progress[i].userMove;
 
     var roundPoints = document.createElement('td')
     roundPoints.innerText = params.progress[i].compScore + ':' + params.progress[i].playerScore;
