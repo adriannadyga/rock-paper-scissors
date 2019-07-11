@@ -12,10 +12,14 @@ var text = document.getElementById('alert');
 
 //zmienne w obiekcie
 var params = {
+  roundNumber: 0,
   playerScore: 0,
+  playerText: '',
   compScore: 0,
-  roundsToWin: 0
-}
+  compChoice: '',
+  roundsToWin: 0,
+  progress: []
+};
 
 //zmienne
 /*var playerScore = 0;
@@ -45,13 +49,22 @@ function showModal(){
     modals[i].classList.remove('show');
     modals[i].classList.add('show');
   }
-  if (params.PlayerScore >= params.roundsToWin){
+  var newHTML = '<table><thead><tr><th>Rounds | </th><th>Your Move | </th><th>Computer Move | </th><th>Round Result | </th><th></tr></thead><tbody>';
+    for (i = 0; i < params.progress.length; i++) {
+      newHTML += '<tr><td>' +
+      params.progress[i].roundNumber + '</td></td>' +
+      params.progress[i].compScore + ':' + params.progress[i].playerScore + '</td></tr>' 
+  }
+  newHTML += '</tbody><table>';
+  modals.innerHTML = newHTML;
+  if (params.playerScore >= params.roundsToWin){
     text.innerHTML = 'YOU WON !!!';
   }
   else if (params.compScore >= params.roundsToWin){
     text.innerHTML = 'YOU LOST !!!';
   }
 }
+  
 
 //funkcja zamykająca modal po kliknięciu na elemencie z klasą close
 var hideModal = function (event) {
@@ -85,7 +98,7 @@ var compare = function(userMove, compChoice){
 } else if ((userMove == 'paper') && (compChoice == 'rock') ||
     (userMove == 'rock') && (compChoice == 'scissors') ||
     (userMove == 'scissors') && (compChoice == 'paper')) {
-      params.PlayerScore++;
+      params.playerScore++;
       return 'YOU WON';
 } else {
     params.compScore++;
@@ -121,7 +134,7 @@ function outputResult(compareResult, playerText, compText){
 
 //funkcja wyświetlająca wynik rozgrywki (sumuje poszczególne rundy)
 var scoresResult = function(){
-  result.innerHTML = 'PLAYER ' + params.PlayerScore + ' COMPUTER ' + params.compScore;
+  result.innerHTML = 'PLAYER ' + params.playerScore + ' COMPUTER ' + params.compScore;
 }
 
 //nowa gra 
@@ -139,15 +152,16 @@ btnNewGame.addEventListener('click', function(){
 
 //funkcja resetująca grę
 var resetGame = function(){
-  params.PlayerScore = 0;
+  params.roundNumber = 0;
+  params.playerScore = 0;
   params.compScore = 0;
-  result.innerHTML = ''
-  output.innerHTML = ''
+  result.innerHTML = '';
+  output.innerHTML = '';
 }
 
 //koniec gry
 function endOfGame() {
-  if (params.PlayerScore >= params.roundsToWin){
+  if (params.playerScore >= params.roundsToWin){
     output.innerHTML = 'YOU WON !!! <br> click new game to start';
     buttonDisabled();
     showModal();
@@ -162,10 +176,42 @@ function endOfGame() {
 //funkcja playerMove
 var playerMove = function(userMove){
   var compChoice = computerMove();
+  params.roundNumber++;
   var compareResult = compare(userMove, compChoice);
   var playerText = userMove;
   var compText = compChoice;
   outputResult(compareResult, playerText, compText);
   scoresResult();
+  //dodawanie obiektów do tabeli
+  params.progress.push({
+    roundNumber: params.roundNumber,
+    compScore: params.compScore,
+    compChoice: params.compChoice,
+    playerScore: params.playerScore,
+    playerText: params.playerText}
+  );
+  //dodawanie tabeli
+  var myTable = document.getElementById('table');
+  var tbody = myTable.querySelector('tbody');
+
+  for (var i = 0; i < params.progress.length; i++){
+    var row = document.createElement('tr');
+
+    var roundNumber = document.createElement('td')
+    roundNumber.innerText = params.progress[i].roundNumber;
+
+    var computerChoice = document.createElement('td')
+    computerChoice.innerText = params.progress[i].compChoice;
+
+    var userChoice = document.createElement('td')
+    userChoice.innerText = params.progress[i].playerText;
+
+    var roundPoints = document.createElement('td')
+    roundPoints.innerText = params.progress[i].compScore + ':' + params.progress[i].playerScore;
+
+  }
+  row.append(roundNumber, compChoice, userChoice, roundPoints);
+  tbody.append(row);
   endOfGame();
 };
+

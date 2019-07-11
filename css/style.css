@@ -60,8 +60,8 @@
 
 .modal {
   display: none;
+  padding: 20px;
   background: #fff;
-  width: 300px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -83,8 +83,21 @@
   text-decoration: none;
 }
 
+.modal .content .progress {
+  display: inline-block;
+  width: 100%;
+}
+
+.modal .content .progress table {
+  border: 1px solid black;
+}
+
+.modal .content .progress table td {
+  text-align: center;
+}
+
 .modal .alerts {
-  height: 100px;
+  height: 10px;
 }
 
 .modal.show {
