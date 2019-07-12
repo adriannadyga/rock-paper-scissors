@@ -49,14 +49,6 @@ function showModal(){
     modals[i].classList.remove('show');
     modals[i].classList.add('show');
   }
-  var newHTML = '<table><thead><tr><th>Rounds | </th><th>Your Move | </th><th>Computer Move | </th><th>Round Result | </th><th></tr></thead><tbody>';
-    for (i = 0; i < params.progress.length; i++) {
-      newHTML += '<tr><td>' +
-      params.progress[i].roundNumber + '</td></td>' +
-      params.progress[i].compScore + ':' + params.progress[i].playerScore + '</td></tr>' 
-  }
-  newHTML += '</tbody><table>';
-  modals.innerHTML = newHTML;
   if (params.playerScore >= params.roundsToWin){
     text.innerHTML = 'YOU WON !!!';
   }
