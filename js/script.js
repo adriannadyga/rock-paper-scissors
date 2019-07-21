@@ -168,6 +168,7 @@ function endOfGame() {
 //funkcja playerMove
 var playerMove = function(userMove){
   var compChoice = computerMove();
+  params.userMove = userMove;
   params.roundNumber++;
   var compareResult = compare(userMove, compChoice);
   var playerText = userMove;
@@ -206,4 +207,3 @@ var playerMove = function(userMove){
   tbody.append(row);
   endOfGame();
 };
-

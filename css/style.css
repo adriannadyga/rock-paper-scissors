@@ -1,107 +1,37 @@
-.container {
-  text-align: center;
-  background-color: #b4b4b4;
-}
+.container { text-align: center; background-color: #b4b4b4; }
 
-.container .alerts {
-  font-size: 20px;
-  padding-top: 5px;
-}
+.container .alerts { font-size: 20px; padding-top: 5px; }
 
-.container .alerts .output {
-  text-transform: uppercase;
-}
+.container .alerts .output { text-transform: uppercase; }
 
-.container .background {
-  background-color: #cdcdcd;
-}
+.container .background { background-color: #cdcdcd; }
 
-.container .background .btn button {
-  width: 70px;
-  height: 70px;
-  margin: 40px;
-  border-radius: 50%;
-  background-color: red;
-}
+.container .background .btn button { width: 70px; height: 70px; margin: 40px; border-radius: 50%; background-color: red; }
 
-.container .background .btn button .fas {
-  font-size: 40px;
-}
+.container .background .btn button .fas { font-size: 40px; }
 
-.container .background .score .result {
-  font-size: 30px;
-}
+.container .background .score .result { font-size: 30px; }
 
-.container .background .newgame {
-  width: 100px;
-  height: 70px;
-  font-size: 20px;
-  background-color: yellow;
-  margin: 30px;
-}
+.container .background .newgame { width: 100px; height: 70px; font-size: 20px; background-color: yellow; margin: 30px; }
 
-.container .background .number {
-  font-size: 30px;
-}
+.container .background .number { font-size: 30px; }
 
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-}
+.overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); }
 
-.overlay.show {
-  display: block;
-}
+.overlay.show { display: block; }
 
-.modal {
-  display: none;
-  padding: 20px;
-  background: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-}
+.modal { display: none; padding: 20px; background: #fff; position: absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); }
 
-.modal header {
-  font-size: 20px;
-  min-height: 30px;
-  font-weight: bold;
-  padding: 10px;
-}
+.modal header { font-size: 20px; min-height: 30px; font-weight: bold; padding: 10px; }
 
-.modal .close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 5px;
-  text-decoration: none;
-}
+.modal .close { position: absolute; right: 0; top: 0; padding: 5px; text-decoration: none; }
 
-.modal .content .progress {
-  display: inline-block;
-  width: 100%;
-}
+.modal .content .progress { display: inline-block; width: 100%; }
 
-.modal .content .progress table {
-  border: 1px solid black;
-}
+.modal .content .progress table { border: 1px solid black; }
 
-.modal .content .progress table td {
-  text-align: center;
-}
+.modal .content .progress table td { text-align: center; }
 
-.modal .alerts {
-  height: 10px;
-}
+.modal .alerts { height: 10px; }
 
-.modal.show {
-  display: block;
-}
-
-/*# sourceMappingURL=style.css.map */
+.modal.show { display: block; }
